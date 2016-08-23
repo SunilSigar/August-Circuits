@@ -1,0 +1,37 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+      
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt(); // t - number of test cases
+        while(t>0){
+       		int n = sc.nextInt(); // n - size of array
+        	int[] a = new int[n]; 
+        	for(int i=0; i<n; i++){
+       			a[i] = sc.nextInt();	
+        	}
+        	int max=0, d; // d - use to find prime number
+        	for(int i=0; i<n; i++){
+        		d = 2;
+        		boolean bo = true; 
+        		if(a[i]==1) continue;
+        		while(d<=(a[i]/2)){
+        			if(a[i]%d == 0){
+        				bo = false;
+        				break;
+        		 }
+        		d++;
+        		}
+        		if(bo==true){
+        			if(a[i]>max) max = a[i];
+        		}
+        	}
+        	if(max==0) System.out.println(-1);
+        	else System.out.println(max * max);
+        t--;
+        }
+    }
+}
